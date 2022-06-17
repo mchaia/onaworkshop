@@ -1,0 +1,4 @@
+FROM fabric8/java-alpine-openjdk8-jre:1.9.0
+COPY passwordapi.jar /deployments/passwordapi.jar
+EXPOSE 8080
+USER 405
