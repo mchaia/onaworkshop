@@ -3,7 +3,7 @@
 
 Elegí la úlitma imagen java basada en Alpine (1.9.0) que solo contenga el JRE (runtime) ya que el compilador (JDK) no es necesario. 
 
-    COPY passwordapi.jar /deployments passwordapi.jar
+    COPY passwordapi.jar /deployments/passwordapi.jar
 
 Según la documentación de la imagen utilizada hay que copiar el `jar` en el directorio `/deployments`. Si es el único `jar` en tal directorio (como en este caso) se va a ejecutar ese. 
 
