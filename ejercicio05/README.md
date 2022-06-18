@@ -7,7 +7,9 @@ El criterio para determinar el estado de un container es dependiente de cada apl
 En general:
 
     HEALTHCHECK [OPTIONS] CMD check_cmd || exit 1
- 
+
+El comando especificado se ejecutará al momento de levantar el container (y potencialmente en reiteradas oportunidades dependiendo de las opciones) para que Docker determine si el container está funcionando bien o no.
+
 ### `ONBUILD`
 
 Especifica acciones que deben ejecutarse durante el proceso de building de otra imagen en la que se utilice la imagen actual (donde está el `ONBUILD`) como base.
