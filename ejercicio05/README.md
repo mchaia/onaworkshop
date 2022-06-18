@@ -19,3 +19,49 @@ Ejemplo:
     ONBUILD COPY . /app
 
 ### `VOLUME`
+
+Especifica directorios **dentro del container** en los que se montarán volúmenes que se crearán al momento de correr el container.
+
+Ejemplo:
+
+    FROM busybox
+    VOLUME /vol1 /vol2
+
+Crear la imagen con:
+
+    docker build -t my-busybox .
+
+Al levantar el container e ingresar en él:
+
+    docker run --rm -it my-busybox
+
+se podrán ver los directorios `/vol1` y `/vol2` en los que se encontrarán montados los volúmenes creados.
+
+Los cuales se pueden ver en el host:
+
+    docker inspect -f '{{ json .Mounts }}' containerid | python -m json.tool 
+
+(hay que averiguar el `containerid` del container mientras está corriendo con `docker ps`)
+
+    [
+        {
+            "Type": "volume",
+            "Name": "abf8...",
+            "Source": "/var/lib/docker/volumes/abf8.../_data",
+            "Destination": "/vol1",
+            "Driver": "local",
+            "Mode": "",
+            "RW": true,
+            "Propagation": ""
+        },
+        {
+            "Type": "volume",
+            "Name": "e4f6...",
+            "Source": "/var/lib/docker/volumes/e4f6.../_data",
+            "Destination": "/vol2",
+            "Driver": "local",
+            "Mode": "",
+            "RW": true,
+            "Propagation": ""
+        }
+    ]
