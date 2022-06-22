@@ -9,13 +9,7 @@
 
 Se usa la misma convención que la imagen de `fabric8`: hay que copiar el `jar` en el directorio `/deployments`. Si es el único `jar` en tal directorio (como en este caso) se va a ejecutar ese. 
 
-    EXPOSE 8080
-
-Exponer el puerto 8080 para mapearlo luego desde el host
-
-    USER 185
-
-Ejecutar la aplicación como usuario `jboss` (uid=185). El usuario `guest` no existe en este container.
+> Según la documentación, la imagen base ya expone el port 8080 y ejecuta la aplicación como usuario `jboss` (uid=185) con lo cual no hacen falta los comandos `EXPOSE` ni `USER`.
 
 ## Construcción de la imagen
 
