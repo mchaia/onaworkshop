@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jobvacancy
+  labels:
+    app: jobvacancy
+spec:
+  selector:
+    app: jobvacancy
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: NodePort
